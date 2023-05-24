@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Запросы</title>
+</head>
+<body>
+<h1>Запросы</h1>
+<% if (requests.length === 0) { %>
+    <p>Нет запросов</p>
+<% } else { %>
+<table>
+    <tr>
+        <th>Заголовок</th>
+        <th>Имя</th>
+        <th>Описание</th>
+        <th>Статус</th>
+        <th></th>
+    </tr>
+    <% requests.forEach(function(request) { %>
+        <tr>
+            <td><%= request.title %></td>
+            <td><%= request.name %></td>
+            <td><%= request.description %></td>
+            <td><%= request.status %></td>
+            <td>
+                <% if (request.status === 'отклонен' || request.status === 'завершен') { %>
+                    <form action="/requests/delete/<%= request._id %>" method="POST">
+                        <button type="submit">Удалить</button>
+                    </form>
+                <% } %>
+            </td>
+        </tr>
+    <% }); %>
+</table>
+<% } %>
+<a href="/requests/create">Создать запрос</a>
+<a href="/logout">Выход</a>
+</body>
+</html>

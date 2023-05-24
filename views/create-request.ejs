@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Создать запрос</title>
+</head>
+<body>
+<h1>Создать запрос</h1>
+<form action="/requests/create" method="POST">
+    <div>
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="title" required>
+    </div>
+    <div>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="description">Описание:</label>
+        <textarea id="description" name="description" required></textarea>
+    </div>
+    <div>
+        <button type="submit">Отправить</button>
+    </div>
+</form>
+</body>
+</html>
